@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>particles.js</title>
+  <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
+  <meta name="author" content="Vincent Garreau" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" media="screen" href="css/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<style type="text/css">
+@font-face {
+    font-family: fonta;
+    src: url(SCRIPTIN.ttf);
+}
+  @font-face{
+        font-family: 'prognostic';
+        src: url('assets/fonts/prognostic.ttf');
+    }
+    .scrollbar {
+  height: 100px;
+  overflow: auto; // here is the magic :)
+}
+  
+#background-video{
+  width: 100%;height:100%;
+  position:initial;
+  overflow:hidden;
+  background-color:#000;
+  color:white;
+}
+#background-video video{
+  position:absolute;
+  width:100%;height:100%;
+  top:0;left:0;
+  object-fit:cover;
+  pointer-events:none;
+  opacity:.5;
+}
+
+
+.sub-title{
+
+  font-family: prognostic;
+  color: orange;
+}
+
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  width: 200px;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: black;
+  margin-left: 96px;
+}
+
+.reg_container:hover .overlay {
+  opacity: .8;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+@media only screen and (max-width: 500px) {
+    body {
+        background-color: lightblue;
+    }
+}
+
+
+
+</style>
+
+</head>
+<body>
+
+<!-- count particles -->
+
+
+<!-- particles.js container -->
+<div id="particles-js">
+
+                  
+                     <img src="srmseal.png" class="img-responsive" width="400px" height="400px" style="position: absolute; left: 50%; margin-left: -200px; top:20%; opacity: .1">
+                     <div id="row">
+                     <div id="col-sm-12">
+                   <center class="title"><h1 class="display-1" style="font-size: 70px; color:  #FF8C00; font-family:prognostic; position: absolute; left: 50%; margin-left: -194px; top: 28%; padding: 30px;" >Taraksh'17</h1><br></center>
+                        </div>
+                        </div>
+                         <h3 class="display-1" style="font-size: 35px; color: #fff;  font-family: fonta; position: absolute; left: 50%; margin-left: -125px; top: 30%; margin-top: 120px;"> Coming live soon</h3><br>
+                            
+                    </center>    
+
+                 
+                   
+                
+
+
+</div>
+
+
+
+<!-- scripts -->
+<script src="../particles.js"></script>
+<script src="js/app.js"></script>
+
+<!-- stats.js -->
+
+<script>
+  var count_particles, stats, update;
+  stats = new Stats;
+  stats.setMode(0);
+  stats.domElement.style.position = 'absolute';
+  stats.domElement.style.left = '0px';
+  stats.domElement.style.top = '0px';
+  document.body.appendChild(stats.domElement);
+  count_particles = document.querySelector('.js-count-particles');
+  update = function() {
+    stats.begin();
+    stats.end();
+    if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+      count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+    }
+    requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+</script>
+
+</body>
+</html>
